@@ -25,7 +25,7 @@ public class MortgageCalculator { //CLASS
         return balance;
     }
 
-    public double calculateMortgage() {
+    public double calculateMortgage() { //METHOD
         float monthlyInterest = getMonthlyInterest();
         float numberOfPayments = getNumberOfPayments();
 

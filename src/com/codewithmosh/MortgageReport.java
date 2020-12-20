@@ -4,24 +4,24 @@ import java.text.NumberFormat;
 
 public class MortgageReport { //CLASS
 
-    private final NumberFormat currency;
-    private MortgageCalculator calculator;
+    private final NumberFormat currency; // weet noe wat hier aangaan nie.
+    private MortgageCalculator sakrekenaar; // Renaming the Class / Function ... why?
 
-    public MortgageReport(MortgageCalculator calculator) { //FUNCTION
-        this.calculator = calculator;
-        currency = NumberFormat.getCurrencyInstance();
+    public MortgageReport(MortgageCalculator sakrekenaar) { //FUNCTION - did he rename MortgageCalculator to "calculator"
+        this.sakrekenaar = sakrekenaar;
+        currency = NumberFormat.getCurrencyInstance(); //FROM IMPORTED CLASS
     }
 
     public void printPaymentSchedule() { //FUNCTION
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
-        for (double balance : calculator.getRemainingBalances())
+        for (double balance : sakrekenaar.getRemainingBalances())
             System.out.println(currency.format(balance));
     }
 
     public void printMortgage() { //FUNCTION
-        double mortgage = calculator.calculateMortgage();
+        double mortgage = sakrekenaar.calculateMortgage();
         String mortgageFormatted = currency.format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
